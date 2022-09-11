@@ -1,26 +1,30 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <PurchForm />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import PurchForm from "./components/PurchaseForm.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    PurchForm,
+  },
+  data() {
+    return {
+      purchases:[],
+      categories:[],
+    };
+  },
+  methods: {
+    addPurch(name, category, cost) {
+      this.purchases.push({name: name, category: category, cost:cost});
+      this.categories.push(category);
+      console.log(this.purchases);
+      console.log(this.categories)
+    },
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
